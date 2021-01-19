@@ -4,6 +4,28 @@
   box-sizing: border-box;
 }
 
+:root {
+  --ff-ss: "Be Vietnam", sans-serif;
+
+  --fw-normal: 400;
+  --fw-semi-bold: 500;
+  --fw-bold: 700;
+
+  --clr-primary-400: hsl(12, 88%, 59%);
+  --clr-primary-500: hsl(228, 39%, 23%);
+
+  --clr-neutral-400: hsl(0, 0%, 98%);
+  --clr-neutral-500: hsl(13, 100%, 96%);
+  --clr-neutral-600: hsl(228, 20%, 40%);
+  --clr-neutral-700: hsl(223, 12%, 13%);
+
+  --fs-400: 1rem;
+  --fs-500: 1.125rem;
+  --fs-600: 1.5rem;
+  --fs-700: 2rem;
+  --fs-800: 2.5rem;
+}
+
 body,
 h1,
 h2,
@@ -27,15 +49,36 @@ html:focus-within {
 }
 
 body {
-  min-height: 100vh;
-  text-rendering: optimizeSpeed;
+  background-color: var(--clr-neutral-400);
+  color: var(--clr-neutral-600);
+  font-family: var(--ff-ss);
   line-height: 1.5;
+  min-height: 100vh;
+  overflow-x: hidden;
+  text-align: center;
+  text-rendering: optimizeSpeed;
+}
+
+p {
+  font-size: var(--fs-500);
+}
+
+h1 {
+  font-size: var(--fs-800);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--clr-neutral-700);
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
 }
 
 img,
 picture {
-  max-width: 100%;
   display: block;
+  max-width: 100%;
 }
 
 input,
@@ -43,6 +86,11 @@ button,
 textarea,
 select {
   font: inherit;
+}
+
+button,
+a {
+  cursor: pointer;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -54,27 +102,13 @@ select {
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
-:root {
-  --ff-ss: "Be Vietnam", sans-serif;
-
-  --fw-normal: 400;
-  --fw-semi-bold: 500;
-  --fw-bold: 700;
-
-  --clr-primary-400: hsl(12, 88%, 59%);
-  --clr-primary-500: hsl(228, 39%, 23%);
-
-  --clr-neutral-400: hsl(0, 0%, 98%);
-  --clr-neutral-500: hsl(13, 100%, 96%);
-  --clr-neutral-600: hsl(227, 12%, 61%);
-  --clr-neutral-700: hsl(223, 12%, 13%);
-
-  --fs-400: 1rem;
+[hidden] {
+  display: none !important;
 }
 
 .sr-only {
@@ -88,4 +122,270 @@ select {
   position: absolute;
   width: 1px;
   word-wrap: normal !important;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1150px;
+  overflow-x: hidden;
+  padding: 0 1.5em;
+}
+
+.flow > * + * {
+  margin-top: var(--fl, 1.5em);
+}
+
+body section {
+  margin-top: 2em;
+}
+
+body section + section {
+  margin-top: 4em;
+}
+
+body > section,
+footer {
+  padding: 3em 0;
+}
+
+.pill {
+  background-color: var(--bg, hsl(12, 88%, 59%));
+  border: none;
+  border-radius: 100vw;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  color: var(--fg, hsl(0, 0%, 98%));
+  display: inline-block;
+  font-weight: var(--fw-semi-bold);
+  line-height: 1;
+  padding: 0.75em 1.5em;
+  text-decoration: none;
+  transition: all 0.1s;
+}
+
+.pill:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.pill:active {
+  transform: translateY(0);
+}
+
+.bg-dark {
+  background-color: var(--clr-neutral-700);
+  color: var(--clr-neutral-400);
+}
+
+.bg-orange {
+  background-color: var(--clr-primary-400);
+  color: var(--clr-neutral-400);
+}
+
+.first-illustration,
+.second-illustration {
+  overflow-x: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateY(-10%) translateX(20%);
+  z-index: -1;
+}
+
+.second-illustration {
+  top: 450px;
+  transform: translateX(60%);
+}
+
+/* sections */
+
+/* HEADER */
+
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 2em 0;
+}
+
+.open-nav-button {
+  align-self: flex-start;
+  background-color: transparent;
+  border: none;
+}
+
+/* HERO */
+
+.hero {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* PRODUCT */
+
+.product {
+  text-align: left;
+}
+
+.product-card header {
+  align-items: center;
+  display: flex;
+  line-height: 1;
+}
+
+.product-card header * + * {
+  margin-left: 1em;
+}
+
+.product header span {
+  border-radius: 100vw;
+  display: inline-block;
+  padding: 0.5em 1.5em;
+  position: relative;
+}
+
+.product header span::after {
+  background-color: hsla(12, 88%, 59%, 10%);
+  content: "";
+  height: 100%;
+  position: absolute;
+  right: -600px;
+  top: 0;
+  transform-origin: right;
+  width: 630px;
+}
+
+/* COMMUNITY */
+
+.community {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.community .slider {
+  margin-top: 4em;
+}
+
+.slider {
+  height: 450px;
+  overflow: hidden;
+}
+
+.slider-track {
+  height: 90%;
+  position: relative;
+  width: 100%;
+}
+
+.slider-slide {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: translateX(-200%);
+}
+
+.slider-slide.previous {
+  transform: translateX(-100%);
+}
+
+.slider-slide.current {
+  transform: translateX(0);
+}
+
+.slider-slide.next {
+  transform: translateX(100%);
+}
+
+.slider-slide.next + .slider-slide {
+  transform: translateX(200%);
+}
+
+.slider-slide img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.slider-controls {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 100;
+}
+
+.slider-controls > div + div {
+  margin-left: 0.5em;
+}
+
+.slider-controls > div {
+  background-color: transparent;
+  border: 1px solid var(--clr-primary-400);
+  border-radius: 100%;
+  height: 10px;
+  transition: background-color 0.1s;
+  width: 10px;
+}
+
+.slider-controls > div.active {
+  background-color: var(--clr-primary-400);
+}
+
+/* START */
+
+.start {
+  --fg: var(--clr-primary-400, hsl(12, 88%, 59%));
+  --bg: var(--clr-neutral-400, hsl(0, 0%, 98%));
+}
+
+.start h2 {
+  color: inherit;
+}
+
+/* FOOTER */
+
+.footer .container > * + * {
+  margin-top: 3em;
+}
+
+.footer form > button {
+  margin-left: 0.5em;
+}
+
+.secondary-navigation {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+.secondary-navigation ul {
+  align-self: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+.secondary-navigation ul li + li {
+  margin-top: 0.5em;
+}
+
+.secondary-navigation a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.socials ul {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.footer .copyright {
+  font-size: 0.8rem;
+}
+
+.footer .attribution a {
+  color: inherit;
 }
