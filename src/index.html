@@ -28,16 +28,16 @@
         <div class="logo">
           <img src="/images/logo.svg" alt="logo" aria-hidden="true" />
         </div>
-        <nav hidden class="primary-nav">
+        <nav class="primary-nav">
           <ul role="list">
             <li><a href="#pricing">Pricing</a></li>
             <li><a href="#product">Product</a></li>
             <li><a href="#about-us">About Us</a></li>
             <li><a href="#careers">Careers</a></li>
             <li><a href="#community">Community</a></li>
-            <li><a class="pill" href="#start">Get Started</a></li>
           </ul>
         </nav>
+        <a class="pill get-started-btn" href="#start">Get Started</a>
         <button class="open-nav-button">
           <span class="sr-only">Open Navigation</span>
           <img
@@ -178,17 +178,20 @@
 
     <footer class="footer bg-dark">
       <div class="container">
-        <form class="form" id="start">
-          <label for="email" class="sr-only">Email:</label>
-          <!-- handle email validation with javascript -->
-          <input
-            placeholder="Updates in your inbox..."
-            type="text"
-            name="email"
-            id="email"
-          />
-          <button type="submit" class="pill">Go</button>
-        </form>
+        <div class="form-div">
+          <form class="form" id="start">
+            <label for="email" class="sr-only">Email:</label>
+            <!-- handle email validation with javascript -->
+            <input
+              placeholder="Updates in your inbox..."
+              type="text"
+              name="email"
+              id="email"
+            />
+            <button type="submit" class="pill">Go</button>
+          </form>
+          <p class="copyright">Copyright 2020. All Rights Reserved</p>
+        </div>
         <nav class="secondary-navigation">
           <ul role="list">
             <li><a href="#home">Home</a></li>
@@ -256,9 +259,8 @@
             </svg>
           </div>
         </div>
-        <p class="copyright">Copyright 2020. All Rights Reserved</p>
 
-        <div class="attribution">
+        <!-- <div class="attribution">
           Challenge by
           <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
             >Frontend Mentor</a
@@ -266,7 +268,7 @@
           <a target="_blank" href="https://www.github.com/goranzu"
             >Goran Tenic</a
           >.
-        </div>
+        </div> -->
       </div>
     </footer>
 
