@@ -371,6 +371,7 @@ footer {
   position: absolute;
   top: 0;
   transform: translateX(-200%);
+  transition: transform 0.2s ease;
 }
 
 .slider-slide.previous {
@@ -412,6 +413,10 @@ footer {
   height: 10px;
   transition: background-color 0.1s;
   width: 10px;
+}
+
+.slider-controls > div:hover {
+  cursor: pointer;
 }
 
 .slider-controls > div.active {
