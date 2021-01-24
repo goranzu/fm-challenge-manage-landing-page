@@ -5,23 +5,21 @@ class Slider {
     }
 
     this.slider = sliderEl;
-    this.sliderTrack = this.slider.querySelector(".slider-track");
-    this.slides = this.slider.querySelectorAll(".slider-slide");
-    this.controlButtons = this.slider.querySelectorAll(
-      ".slider-controls > div",
-    );
+    this.slidesContainer = this.slider.querySelector(".slides");
+    this.slideArray = Array.from(this.slider.querySelectorAll(".slide"));
+    this.controlButtons = this.slider.querySelectorAll(".controls > div");
 
     this.currentSlide =
-      this.sliderTrack.querySelector(".current") ||
-      this.sliderTrack.firstElementChild;
+      this.slidesContainer.querySelector(".current") ||
+      this.slidesContainer.firstElementChild;
 
     this.nextSlide =
       this.currentSlide.nextElementSibling ||
-      this.sliderTrack.firstElementChild;
+      this.slidesContainer.firstElementChild;
 
     this.previousSlide =
       this.currentSlide.previousElementSibling ||
-      this.sliderTrack.lastElementChild;
+      this.slidesContainer.lastElementChild;
 
     this.applyClasses();
 
@@ -39,7 +37,7 @@ class Slider {
   }
 
   removeClasses() {
-    this.slides.forEach((slide) =>
+    this.slideArray.forEach((slide) =>
       slide.classList.remove(...["current", "next", "previous"]),
     );
   }
@@ -51,17 +49,17 @@ class Slider {
       buttons.classList.remove("active"),
     );
 
-    this.slides.forEach((slide, slideIndex) => {
+    this.slideArray.forEach((slide, slideIndex) => {
       if (slideIndex === buttonIndex) {
-        this.currentSlide = this.slides[slideIndex];
+        this.currentSlide = this.slideArray[slideIndex];
 
         this.previousSlide =
           this.currentSlide.previousElementSibling ||
-          this.sliderTrack.lastElementChild;
+          this.slidesContainer.lastElementChild;
 
         this.nextSlide =
           this.currentSlide.nextElementSibling ||
-          this.sliderTrack.firstElementChild;
+          this.slidesContainer.firstElementChild;
       }
     });
 

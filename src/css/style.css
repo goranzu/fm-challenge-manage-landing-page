@@ -50,6 +50,10 @@ html:focus-within {
   scroll-behavior: smooth;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--clr-neutral-400);
   color: var(--clr-neutral-600);
@@ -198,6 +202,14 @@ footer {
 .second-illustration {
   top: 450px;
   transform: translateX(60%);
+}
+
+@media (min-width: 56.25rem) {
+  .second-illustration {
+    right: unset;
+    left: 0;
+    top: 700px;
+  }
 }
 
 /* sections */
@@ -355,58 +367,39 @@ footer {
 }
 
 .slider {
-  height: 450px;
-  overflow: hidden;
-}
-
-.slider-track {
-  height: 90%;
-  position: relative;
-  width: 100%;
-}
-
-.slider-slide {
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  transform: translateX(-200%);
-  transition: transform 0.2s ease;
-}
-
-.slider-slide.previous {
-  transform: translateX(-100%);
-}
-
-.slider-slide.current {
-  transform: translateX(0);
-}
-
-.slider-slide.next {
-  transform: translateX(100%);
-}
-
-.slider-slide.next + .slider-slide {
-  transform: translateX(200%);
-}
-
-.slider-slide img {
+  height: 400px;
   margin-left: auto;
   margin-right: auto;
+  max-width: 600px;
 }
 
-.slider-controls {
+.slides {
+  height: 90%;
+  list-style: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+}
+
+.slide {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: absolute;
+  transition: transform 0.5s;
+}
+
+.slide img {
+  align-self: center;
+}
+
+.controls {
   display: flex;
   justify-content: center;
-  position: relative;
-  z-index: 100;
 }
 
-.slider-controls > div + div {
-  margin-left: 0.5em;
-}
-
-.slider-controls > div {
+.controls > div {
   background-color: transparent;
   border: 1px solid var(--clr-primary-400);
   border-radius: 100%;
@@ -415,11 +408,15 @@ footer {
   width: 10px;
 }
 
-.slider-controls > div:hover {
+.controls div + div {
+  margin-left: 0.5em;
+}
+
+.controls > div:hover {
   cursor: pointer;
 }
 
-.slider-controls > div.active {
+.controls > div.active {
   background-color: var(--clr-primary-400);
 }
 
@@ -453,7 +450,12 @@ footer {
 
 /* FOOTER */
 
-.footer .container > * + * {
+.footer {
+  padding-bottom: 2em;
+  padding-top: 4em;
+}
+
+.footer > * + * {
   margin-top: 3em;
 }
 
@@ -501,79 +503,71 @@ footer {
   padding: 0.5em 1em;
 }
 
-.footer .copyright {
+.copyright {
   font-size: 0.8rem;
 }
 
-.footer .attribution a {
+.attribution {
+  margin-top: 2em;
+}
+
+.attribution a {
   color: inherit;
 }
 
 @media (min-width: 56.25rem) {
   /* FIXME: Footer!! */
-  .socials {
-    margin-left: unset;
-    margin-right: unset;
-  }
-
   .footer {
-    padding: 5em 0;
+    /* position: relative; */
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    row-gap: 2em;
   }
 
-  .footer > div {
-    align-items: center;
-    display: flex;
-    flex-direction: row-reverse;
-    height: 100%;
-    justify-content: space-between;
-    padding-bottom: 1em;
-    padding-top: 1em;
-  }
-
-  /* .footer div > * {
-    margin-top: 0 !important;
-  } */
-
-  .footer .socials {
-    align-self: flex-start;
-    display: flex;
-    flex-direction: column-reverse;
-    height: 100%;
-    justify-content: space-between;
-  }
-
-  .footer .icons {
-    align-self: flex-start;
-    width: 100%;
-  }
-
-  .footer .form {
-    /* margin-top: 2em; */
+  .secondary-navigation,
+  .socials,
+  .copyright,
+  .attribution,
+  .logo {
+    margin-top: 0;
   }
 
   .icons ul {
-    align-items: center;
+    margin-bottom: 0;
+  }
+
+  .socials {
     display: flex;
+    flex-direction: column-reverse;
+    grid-column: 1 / 2;
+    grid-row-start: 1;
     justify-content: space-between;
-    width: 100%;
   }
 
   .secondary-navigation {
+    grid-column: 2 / 3;
+    grid-row-start: 1;
     text-align: left;
   }
 
-  .secondary-navigation ul + ul {
-    margin-left: 6em;
+  .form {
+    display: flex;
   }
 
   .form-div {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    align-self: start;
+    grid-column: 3 / 4;
+    grid-row-start: 1;
   }
 
-  .form-div p {
-    align-self: flex-end;
-    margin-top: 2em;
+  .copyright {
+    align-self: end;
+    grid-column: 3 / 4;
+    grid-row-start: 1;
+    justify-self: end;
+  }
+
+  .attribution {
+    grid-column: 1 / -1;
   }
 }
