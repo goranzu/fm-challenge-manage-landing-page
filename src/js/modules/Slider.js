@@ -6,65 +6,70 @@ class Slider {
 
     this.slider = sliderEl;
     this.slidesContainer = this.slider.querySelector(".slides");
-    this.slideArray = Array.from(this.slider.querySelectorAll(".slide"));
-    this.controlButtons = this.slider.querySelectorAll(".controls > div");
-
-    this.currentSlide =
-      this.slidesContainer.querySelector(".current") ||
-      this.slidesContainer.firstElementChild;
-
-    this.nextSlide =
-      this.currentSlide.nextElementSibling ||
-      this.slidesContainer.firstElementChild;
-
-    this.previousSlide =
-      this.currentSlide.previousElementSibling ||
-      this.slidesContainer.lastElementChild;
-
-    this.applyClasses();
-
-    this.controlButtons.forEach((button, index) =>
-      button.addEventListener("click", (e) => {
-        this.handleClick(e, index);
-      }),
-    );
-  }
-
-  applyClasses() {
-    this.currentSlide.classList.add("current");
-    this.nextSlide.classList.add("next");
-    this.previousSlide.classList.add("previous");
-  }
-
-  removeClasses() {
-    this.slideArray.forEach((slide) =>
-      slide.classList.remove(...["current", "next", "previous"]),
-    );
-  }
-
-  handleClick(e, buttonIndex) {
-    this.removeClasses();
-
-    this.controlButtons.forEach((buttons) =>
-      buttons.classList.remove("active"),
+    this.slides = Array.from(this.slider.querySelectorAll(".slide"));
+    this.controlButtons = Array.from(
+      this.slider.querySelectorAll(".controls > div"),
     );
 
-    this.slideArray.forEach((slide, slideIndex) => {
-      if (slideIndex === buttonIndex) {
-        this.currentSlide = this.slideArray[slideIndex];
+    this.index = 0;
+    // All slides have the same width;
+    this.slideWidth = this.slides[0].getBoundingClientRect().width;
 
-        this.previousSlide =
-          this.currentSlide.previousElementSibling ||
-          this.slidesContainer.lastElementChild;
+    this.handleClick = this.handleClick.bind(this);
 
-        this.nextSlide =
-          this.currentSlide.nextElementSibling ||
-          this.slidesContainer.firstElementChild;
-      }
+    // Update slide width if window resizes
+    window.addEventListener("resize", () => {
+      const slide = this.slider.querySelector(".slide");
+      const width = slide.getBoundingClientRect().width;
+      this.slideWidth = width;
     });
+  }
 
+  init() {
+    // Set slides in correct position
+    for (let i in this.slides) {
+      if (i > 0) {
+        this.slides[i].style.transform = `translateX(${i}00%)`;
+      }
+    }
+
+    this.controlButtons.forEach((button) =>
+      button.addEventListener("click", this.handleClick),
+    );
+    this.autoPlay();
+  }
+
+  handleClick(e) {
+    const index = Number(e.currentTarget.dataset.index);
+    const slideWidth = this.slides[index].getBoundingClientRect().width;
+    this.index = index;
+
+    // Update progress button.
+    this.removeProgressButtonClasses();
     e.currentTarget.classList.add("active");
-    this.applyClasses();
+
+    // Move slides
+    this.showSlide(index * slideWidth);
+  }
+
+  showSlide(pixels) {
+    this.slidesContainer.style.transform = `translateX(-${pixels}px)`;
+  }
+
+  removeProgressButtonClasses() {
+    this.controlButtons.forEach((b) => b.classList.remove("active"));
+  }
+
+  autoPlay(ms = 5000) {
+    setInterval(() => {
+      this.showSlide(this.index * this.slideWidth);
+      this.removeProgressButtonClasses();
+      this.controlButtons[this.index].classList.add("active");
+      this.index++;
+      if (this.index === this.slides.length) {
+        this.index = 0;
+      }
+    }, ms);
   }
 }
 
