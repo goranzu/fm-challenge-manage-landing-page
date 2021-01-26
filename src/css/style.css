@@ -206,7 +206,7 @@ footer {
   .second-illustration {
     left: -900px;
     right: unset;
-    top: 1000px;
+    top: 1100px;
   }
 }
 
@@ -242,10 +242,17 @@ footer {
   margin-left: 1em;
 }
 
-.open-nav-button {
+.open-nav-button,
+.close-nav-button {
   align-self: flex-start;
   background-color: transparent;
   border: none;
+}
+
+.close-nav-button {
+  position: absolute;
+  right: 5.5%;
+  top: 4%;
 }
 
 .primary-nav,
@@ -401,13 +408,13 @@ footer {
   background-color: transparent;
   border: 1px solid var(--clr-primary-400);
   border-radius: 100%;
-  height: 10px;
+  height: 15px;
   transition: background-color 0.1s;
-  width: 10px;
+  width: 15px;
 }
 
 .controls div + div {
-  margin-left: 0.5em;
+  margin-left: 0.75em;
 }
 
 .controls > div:hover {
@@ -423,6 +430,60 @@ footer {
 .start {
   --fg: var(--clr-primary-400, hsl(12, 88%, 59%));
   --bg: var(--clr-neutral-400, hsl(0, 0%, 98%));
+  overflow: hidden;
+  padding: 5em 0;
+  position: relative;
+  z-index: 10;
+}
+
+.third-illustration,
+.fourth-illustration {
+  opacity: 0.1;
+  position: absolute;
+  width: 400px;
+  z-index: 5;
+}
+
+.third-illustration {
+  right: 10000%;
+  top: 10000%;
+}
+
+.fourth-illustration {
+  left: -325px;
+  top: 50px;
+}
+
+@media (min-width: 34.375rem) {
+  .fourth-illustration {
+    left: -225px;
+    top: 50px;
+  }
+}
+
+@media (min-width: 34.375rem) {
+  .fourth-illustration {
+    left: -225px;
+  }
+}
+
+@media (min-width: 54.6875rem) {
+  .fourth-illustration {
+    left: -125px;
+    width: 600px;
+  }
+
+  .third-illustration {
+    right: -350px;
+    top: -500px;
+    width: 600px;
+  }
+}
+
+@media (min-width: 87.5rem) {
+  .fourth-illustration {
+    left: 200px;
+  }
 }
 
 .start h2 {
@@ -514,9 +575,7 @@ footer {
 }
 
 @media (min-width: 56.25rem) {
-  /* FIXME: Footer!! */
   .footer {
-    /* position: relative; */
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     row-gap: 2em;
@@ -568,4 +627,52 @@ footer {
   .attribution {
     grid-column: 1 / -1;
   }
+}
+
+.overlay {
+  background: rgb(246, 246, 251);
+  background: linear-gradient(
+    180deg,
+    rgba(246, 246, 251, 1) 0%,
+    rgba(0, 0, 0, 0.5872549703475141) 100%
+  );
+  bottom: 0;
+  height: 100vh;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100vw;
+  z-index: 100;
+}
+
+.overlay .logo {
+  left: 8%;
+  position: absolute;
+  top: 5%;
+}
+
+.nav-modal {
+  background-color: var(--clr-neutral-400);
+  margin: 6em auto 0;
+  max-width: 600px;
+  padding: 2em;
+}
+
+.mobile-nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+.mobile-nav ul li + li {
+  margin-top: 1em;
+}
+
+.mobile-nav a {
+  color: var(--clr-neutral-700);
+  font-size: var(--fs-500);
+  font-weight: var(--fw-bold);
+  text-decoration: none;
 }

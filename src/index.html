@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <link
       rel="shortcut icon"
-      href="/images/favicon/favicon-32x32.png"
+      href="./images/favicon/favicon-32x32.png"
       type="image/x-icon"
     />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -17,16 +17,42 @@
     <title>Manage Landing Page</title>
   </head>
   <body>
+    <div class="overlay">
+      <div class="logo">
+        <img src="./images/logo.svg" alt="logo" aria-hidden="true" />
+      </div>
+      <button class="close-nav-button">
+        <span class="sr-only">Close Navigation</span>
+        <img
+          src="./images/icons/icon-close.svg"
+          alt="menu"
+          aria-hidden="true"
+        />
+      </button>
+      <div class="container">
+        <div class="nav-modal">
+          <nav class="mobile-nav">
+            <ul role="list">
+              <li><a href="#pricing">Pricing</a></li>
+              <li><a href="#product">Product</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#careers">Careers</a></li>
+              <li><a href="#community">Community</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
     <div class="first-illustration">
-      <img src="/images/bg-tablet-pattern.svg" alt="illustration" />
+      <img src="./images/bg-tablet-pattern.svg" alt="illustration" />
     </div>
     <div class="second-illustration">
-      <img src="/images/bg-tablet-pattern.svg" alt="illustration" />
+      <img src="./images/bg-tablet-pattern.svg" alt="illustration" />
     </div>
     <div class="container">
       <header class="header">
         <div class="logo">
-          <img src="/images/logo.svg" alt="logo" aria-hidden="true" />
+          <img src="./images/logo.svg" alt="logo" aria-hidden="true" />
         </div>
         <nav class="primary-nav">
           <ul role="list">
@@ -41,7 +67,7 @@
         <button class="open-nav-button">
           <span class="sr-only">Open Navigation</span>
           <img
-            src="/images/icons/icon-hamburger.svg"
+            src="./images/icons/icon-hamburger.svg"
             alt="menu"
             aria-hidden="true"
           />
@@ -50,7 +76,7 @@
 
       <section class="hero">
         <div class="hero-illustration">
-          <img src="/images/illustration-intro.svg" alt="data" />
+          <img src="./images/illustration-intro.svg" alt="data" />
         </div>
         <div class="hero-text flow">
           <h1>Bring everyone together to build better products</h1>
@@ -114,7 +140,7 @@
           <ul class="slides">
             <li class="slide flow">
               <img
-                src="/images/avatars/avatar-anisha.png"
+                src="./images/avatars/avatar-anisha.png"
                 alt="anisha's avatar"
               />
               <h4>Anisha Li</h4>
@@ -125,7 +151,7 @@
               </p>
             </li>
             <li class="slide flow">
-              <img src="/images/avatars/avatar-ali.png" alt="ali's avatar" />
+              <img src="./images/avatars/avatar-ali.png" alt="ali's avatar" />
               <h4>Ali Bravo</h4>
               <p>
                 “We have been able to cancel so many other subscriptions since
@@ -135,7 +161,7 @@
             </li>
             <li class="slide flow">
               <img
-                src="/images/avatars/avatar-richard.png"
+                src="./images/avatars/avatar-richard.png"
                 alt="richard's avatar"
               />
               <h4>Richard Watss</h4>
@@ -147,7 +173,7 @@
             </li>
             <li class="slide flow">
               <img
-                src="/images/avatars/avatar-shanai.png"
+                src="./images/avatars/avatar-shanai.png"
                 alt="shanai's avatar"
               />
               <h4>Shanai Gough</h4>
@@ -195,6 +221,12 @@
         <h2>Simplify how your team works today.</h2>
         <a href="#start" class="pill">Get Started</a>
       </div>
+      <div class="third-illustration">
+        <img src="./images/bg-tablet-pattern.svg" alt="illustration" />
+      </div>
+      <div class="fourth-illustration">
+        <img src="./images/bg-tablet-pattern.svg" alt="illustration" />
+      </div>
     </section>
 
     <div class="bg-dark">
@@ -230,22 +262,22 @@
             <ul role="list">
               <li>
                 <a href="https://www.facebook.com/"
-                  ><img src="/images/icons/icon-facebook.svg" alt="facebook"
+                  ><img src="./images/icons/icon-facebook.svg" alt="facebook"
                 /></a>
               </li>
               <li>
                 <a href="https://www.youtube.com/"
-                  ><img src="/images/icons/icon-youtube.svg" alt="youtuber"
+                  ><img src="./images/icons/icon-youtube.svg" alt="youtuber"
                 /></a>
               </li>
               <li>
                 <a href="https://www.trwitter.com/"
-                  ><img src="/images/icons/icon-twitter.svg" alt="twitter"
+                  ><img src="./images/icons/icon-twitter.svg" alt="twitter"
                 /></a>
               </li>
               <li>
                 <a href="https://www.pintrest.com/"
-                  ><img src="/images/icons/icon-pinterest.svg" alt="pintrest"
+                  ><img src="./images/icons/icon-pinterest.svg" alt="pintrest"
                 /></a>
               </li>
               <li>
@@ -292,6 +324,6 @@
       </footer>
     </div>
 
-    <script src="/js/index.js" type="module"></script>
+    <script src="./js/index.js" type="module"></script>
   </body>
 </html>

@@ -5,5 +5,3 @@ const sliderEl = document.querySelector(".slider");
 const slider = new Slider(sliderEl);
 
 slider.init();
-
-// console.log(slider);

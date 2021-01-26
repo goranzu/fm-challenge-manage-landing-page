@@ -10,6 +10,7 @@ class Slider {
     this.controlButtons = Array.from(
       this.slider.querySelectorAll(".controls > div"),
     );
+    this.controlButtonsContainer = this.slider.querySelector(".controls");
 
     this.index = 0;
     // All slides have the same width;
@@ -33,20 +34,23 @@ class Slider {
       }
     }
 
-    this.controlButtons.forEach((button) =>
-      button.addEventListener("click", this.handleClick),
-    );
-    this.autoPlay();
+    this.controlButtonsContainer.addEventListener("click", (e) => {
+      if (e.target.getAttribute("role") === "button") {
+        this.handleClick(e.target);
+      }
+    });
+
+    // this.autoPlay();
   }
 
-  handleClick(e) {
-    const index = Number(e.currentTarget.dataset.index);
+  handleClick(target) {
+    const index = Number(target.dataset.index);
     const slideWidth = this.slides[index].getBoundingClientRect().width;
     this.index = index;
 
     // Update progress button.
     this.removeProgressButtonClasses();
-    e.currentTarget.classList.add("active");
+    target.classList.add("active");
 
     // Move slides
     this.showSlide(index * slideWidth);
