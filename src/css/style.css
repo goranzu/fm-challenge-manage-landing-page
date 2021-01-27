@@ -251,7 +251,7 @@ footer {
 
 .close-nav-button {
   position: absolute;
-  right: 5.5%;
+  right: 7.5%;
   top: 4%;
 }
 
@@ -404,7 +404,7 @@ footer {
   justify-content: center;
 }
 
-.controls > div {
+.controls > button {
   background-color: transparent;
   border: 1px solid var(--clr-primary-400);
   border-radius: 100%;
@@ -413,7 +413,7 @@ footer {
   width: 15px;
 }
 
-.controls div + div {
+.controls button + button {
   margin-left: 0.75em;
 }
 
@@ -421,7 +421,7 @@ footer {
   cursor: pointer;
 }
 
-.controls > div.active {
+.controls > button.active {
   background-color: var(--clr-primary-400);
 }
 
@@ -644,8 +644,14 @@ footer {
   position: fixed;
   right: 0;
   top: 0;
+  transition: opacity 0.2s;
   width: 100vw;
   z-index: 100;
+}
+
+.overlay.open {
+  opacity: 1;
+  pointer-events: all;
 }
 
 .overlay .logo {

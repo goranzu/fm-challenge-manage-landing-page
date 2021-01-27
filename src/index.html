@@ -36,8 +36,8 @@
               <li><a href="#pricing">Pricing</a></li>
               <li><a href="#product">Product</a></li>
               <li><a href="#about">About Us</a></li>
-              <li><a href="#careers">Careers</a></li>
-              <li><a href="#community">Community</a></li>
+              <li><a href="#start">Careers</a></li>
+              <li><a href="#about">Community</a></li>
             </ul>
           </nav>
         </div>
@@ -58,9 +58,9 @@
           <ul role="list">
             <li><a href="#pricing">Pricing</a></li>
             <li><a href="#product">Product</a></li>
-            <li><a href="#about-us">About Us</a></li>
-            <li><a href="#careers">Careers</a></li>
-            <li><a href="#community">Community</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#start">Careers</a></li>
+            <li><a href="#about">Community</a></li>
           </ul>
         </nav>
         <a class="pill get-started-btn" href="#start">Get Started</a>
@@ -74,7 +74,7 @@
         </button>
       </header>
 
-      <section class="hero">
+      <section id="pricing" class="hero">
         <div class="hero-illustration">
           <img src="./images/illustration-intro.svg" alt="data" />
         </div>
@@ -88,7 +88,7 @@
         </div>
       </section>
 
-      <section class="product flow">
+      <section id="product" class="product flow">
         <div class="product-text flow">
           <h2>What's different about Manage?</h2>
           <p>
@@ -134,7 +134,7 @@
         </div>
       </section>
 
-      <section class="community">
+      <section id="about" class="community">
         <h2>What they've said</h2>
         <div class="slider">
           <ul class="slides">
@@ -185,38 +185,27 @@
             </li>
           </ul>
           <div class="controls">
-            <div
+            <button
               data-index="0"
-              role="button"
-              tabindex="0"
               aria-label="select the first slide"
               class="active"
-            ></div>
-            <div
+            ></button>
+            <button
               data-index="1"
-              role="button"
-              tabindex="0"
               aria-label="select the second slide"
-            ></div>
-            <div
-              data-index="2"
-              role="button"
-              tabindex="0"
-              aria-label="select the third slide"
-            ></div>
-            <div
+            ></button>
+            <button data-index="2" aria-label="select the third slide"></button>
+            <button
               data-index="3"
-              role="button"
-              tabindex="0"
               aria-label="select the fourth slide"
-            ></div>
+            ></button>
           </div>
         </div>
         <a href="#start" class="pill">Get Started</a>
       </section>
     </div>
 
-    <section class="start bg-orange">
+    <section id="" class="start bg-orange">
       <div class="container flow">
         <h2>Simplify how your team works today.</h2>
         <a href="#start" class="pill">Get Started</a>

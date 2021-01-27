@@ -8,7 +8,7 @@ class Slider {
     this.slidesContainer = this.slider.querySelector(".slides");
     this.slides = Array.from(this.slider.querySelectorAll(".slide"));
     this.controlButtons = Array.from(
-      this.slider.querySelectorAll(".controls > div"),
+      this.slider.querySelectorAll(".controls > button"),
     );
     this.controlButtonsContainer = this.slider.querySelector(".controls");
 
@@ -35,7 +35,7 @@ class Slider {
     }
 
     this.controlButtonsContainer.addEventListener("click", (e) => {
-      if (e.target.getAttribute("role") === "button") {
+      if (e.target.tagName === "BUTTON") {
         this.handleClick(e.target);
       }
     });
