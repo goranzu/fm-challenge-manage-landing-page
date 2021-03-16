@@ -55,10 +55,10 @@ html {
 }
 
 /* Fixes the side scrolling issue the images  */
-/* .contain {
+.contain {
   position: relative;
   overflow-x: hidden;
-} */
+}
 
 body {
   background-color: var(--clr-neutral-400);
@@ -68,7 +68,6 @@ body {
   min-height: 100vh;
   text-align: center;
   text-rendering: optimizeSpeed;
-  overflow-x: hidden;
 }
 
 p {
